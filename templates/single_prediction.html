@@ -1,0 +1,63 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Diagnostic Report | Analysis Output</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet"><style>
+    :root{--ink:#0d2b2e;--muted:#5b7376;--teal:#0f766e;--teal-d:#0b5b55;--mint:#e3f2ef;--paper:#f4f8f7;--line:#d5e3e0;--coral:#e4572e;--ok:#15803d;--r:16px}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'DM Sans',system-ui,sans-serif;color:var(--ink);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem 1.25rem;position:relative;overflow-x:hidden;
+      background:radial-gradient(circle at 12% 8%,#c9e8e2 0,transparent 38%),radial-gradient(circle at 92% 92%,#fbe1d6 0,transparent 34%),var(--paper)}
+    body::before{content:"";position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(#0f766e22 1.2px,transparent 1.2px);background-size:26px 26px;mask-image:linear-gradient(180deg,#000,transparent 70%)}
+    .drop{position:fixed;pointer-events:none;color:var(--teal);opacity:.08}
+    .drop.a{width:220px;top:-40px;right:-30px;transform:rotate(18deg)}
+    .drop.b{width:150px;bottom:-30px;left:-20px;transform:rotate(-20deg);color:var(--coral);opacity:.09}
+    .card{position:relative;width:100%;background:#fff;border:1px solid var(--line);border-radius:28px;padding:2.75rem 2.5rem;box-shadow:0 30px 60px -30px rgba(13,43,46,.35),0 2px 0 var(--mint);animation:rise .6s ease-out both}
+    .card::before{content:"";position:absolute;left:2.5rem;right:2.5rem;top:0;height:4px;border-radius:0 0 6px 6px;background:linear-gradient(90deg,var(--teal),#5eb8ad,var(--coral))}
+    @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+    .brand{display:inline-flex;align-items:center;gap:.6rem;font-weight:700;font-size:.95rem;color:var(--teal-d);margin-bottom:1.4rem}
+    .brand .logo{width:34px;height:34px;border-radius:11px;background:var(--teal);display:grid;place-items:center;color:#fff}
+    .brand .logo svg{width:18px;height:18px}
+    h1{font-family:'Fraunces',Georgia,serif;font-weight:600;letter-spacing:-.02em;line-height:1.15}
+    a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #5eb8ad;outline-offset:2px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;padding:.95rem 1.5rem;font:600 1rem 'DM Sans',sans-serif;border-radius:12px;border:1.5px solid transparent;cursor:pointer;text-decoration:none;transition:transform .2s,box-shadow .2s,background .2s}
+    .btn-primary{background:var(--teal);color:#fff;box-shadow:0 10px 20px -8px rgba(15,118,110,.6)}
+    .btn-primary:hover{background:var(--teal-d);transform:translateY(-2px)}
+    .btn-ghost{background:#fff;color:var(--teal-d);border-color:var(--line)}
+    .btn-ghost:hover{background:var(--mint)}
+    .btn svg{width:18px;height:18px;transition:transform .2s}
+    .btn:hover svg{transform:translateX(3px)}
+    @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+    .card{max-width:600px;text-align:center}
+    .card.bad{--tone:var(--coral);--tint:#fdeae3;--edge:#f5c7b6}
+    .card.good{--tone:var(--ok);--tint:#e6f5ec;--edge:#b9e0c8}
+    .brand{margin-bottom:1.6rem}
+    .verdict{background:var(--tint);border:1.5px solid var(--edge);border-radius:20px;padding:2rem 1.5rem;margin-bottom:1.6rem}
+    .seal{width:64px;height:64px;margin:0 auto 1rem;border-radius:50%;background:var(--tone);color:#fff;display:grid;place-items:center;box-shadow:0 0 0 8px rgba(255,255,255,.7);animation:pop .5s .25s cubic-bezier(.3,1.6,.5,1) both}
+    .seal svg{width:30px;height:30px}
+    @keyframes pop{from{transform:scale(.4);opacity:0}to{transform:none;opacity:1}}
+    .lbl{font-size:.85rem;color:var(--muted);font-weight:600;margin-bottom:.35rem}
+    h1{font-size:2.1rem;color:var(--tone)}
+    .note{display:flex;gap:.7rem;text-align:left;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:1rem 1.1rem;font-size:.84rem;line-height:1.55;color:var(--muted);margin-bottom:1.8rem}
+    .note svg{flex:none;width:20px;height:20px;color:var(--teal);margin-top:2px}
+    .actions{display:flex;gap:.8rem}
+    .actions .btn{flex:1}
+    @media(max-width:520px){.card{padding:2rem 1.25rem}.actions{flex-direction:column}h1{font-size:1.65rem}}
+  </style></head><body>
+<svg class="drop a" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5c-3.6 4.6-6.5 8-6.5 11.6a6.5 6.5 0 0 0 13 0C18.5 10.5 15.6 7.1 12 2.5z"/></svg>
+<svg class="drop b" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5c-3.6 4.6-6.5 8-6.5 11.6a6.5 6.5 0 0 0 13 0C18.5 10.5 15.6 7.1 12 2.5z"/></svg>
+  {% set is_ok = 'non' in (result|string|lower) %}
+  <main class="card {{ 'good' if is_ok else 'bad' }}">
+    <div class="brand"><span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2.5-6 4 12 2.5-6h5"/></svg></span> Diabetes Risk Check</div>
+    <section class="verdict">
+      <div class="seal" aria-hidden="true">
+        {% if is_ok %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+        {% else %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v7M12 17.5v.5"/></svg>{% endif %}
+      </div>
+      <div class="lbl">Model classification</div>
+      <h1>Person is: {{result}}</h1>
+    </section>
+    <div class="note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8v.5"/></svg>
+      <p>This result comes from a machine learning model and is not a diagnosis. Please confirm it with laboratory blood tests and a doctor.</p></div>
+    <div class="actions">
+      <a href="/" class="btn btn-ghost">Home</a>
+      <a href="/predictdata" class="btn btn-primary">Test another sample</a>
+    </div>
+  </main>
+</body></html>

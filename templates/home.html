@@ -1,0 +1,77 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Diabetes Prediction Form</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet"><style>
+    :root{--ink:#0d2b2e;--muted:#5b7376;--teal:#0f766e;--teal-d:#0b5b55;--mint:#e3f2ef;--paper:#f4f8f7;--line:#d5e3e0;--coral:#e4572e;--ok:#15803d;--r:16px}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'DM Sans',system-ui,sans-serif;color:var(--ink);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem 1.25rem;position:relative;overflow-x:hidden;
+      background:radial-gradient(circle at 12% 8%,#c9e8e2 0,transparent 38%),radial-gradient(circle at 92% 92%,#fbe1d6 0,transparent 34%),var(--paper)}
+    body::before{content:"";position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(#0f766e22 1.2px,transparent 1.2px);background-size:26px 26px;mask-image:linear-gradient(180deg,#000,transparent 70%)}
+    .drop{position:fixed;pointer-events:none;color:var(--teal);opacity:.08}
+    .drop.a{width:220px;top:-40px;right:-30px;transform:rotate(18deg)}
+    .drop.b{width:150px;bottom:-30px;left:-20px;transform:rotate(-20deg);color:var(--coral);opacity:.09}
+    .card{position:relative;width:100%;background:#fff;border:1px solid var(--line);border-radius:28px;padding:2.75rem 2.5rem;box-shadow:0 30px 60px -30px rgba(13,43,46,.35),0 2px 0 var(--mint);animation:rise .6s ease-out both}
+    .card::before{content:"";position:absolute;left:2.5rem;right:2.5rem;top:0;height:4px;border-radius:0 0 6px 6px;background:linear-gradient(90deg,var(--teal),#5eb8ad,var(--coral))}
+    @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+    .brand{display:inline-flex;align-items:center;gap:.6rem;font-weight:700;font-size:.95rem;color:var(--teal-d);margin-bottom:1.4rem}
+    .brand .logo{width:34px;height:34px;border-radius:11px;background:var(--teal);display:grid;place-items:center;color:#fff}
+    .brand .logo svg{width:18px;height:18px}
+    h1{font-family:'Fraunces',Georgia,serif;font-weight:600;letter-spacing:-.02em;line-height:1.15}
+    a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #5eb8ad;outline-offset:2px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;padding:.95rem 1.5rem;font:600 1rem 'DM Sans',sans-serif;border-radius:12px;border:1.5px solid transparent;cursor:pointer;text-decoration:none;transition:transform .2s,box-shadow .2s,background .2s}
+    .btn-primary{background:var(--teal);color:#fff;box-shadow:0 10px 20px -8px rgba(15,118,110,.6)}
+    .btn-primary:hover{background:var(--teal-d);transform:translateY(-2px)}
+    .btn-ghost{background:#fff;color:var(--teal-d);border-color:var(--line)}
+    .btn-ghost:hover{background:var(--mint)}
+    .btn svg{width:18px;height:18px;transition:transform .2s}
+    .btn:hover svg{transform:translateX(3px)}
+    @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+    .card{max-width:720px}
+    h1{font-size:2rem;margin-bottom:.4rem}
+    .sub{color:var(--muted);font-size:.95rem;margin-bottom:1.8rem;max-width:52ch}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem 1.25rem}
+    .field label{display:flex;justify-content:space-between;font-size:.84rem;font-weight:600;margin-bottom:.4rem}
+    .field label small{font-weight:500;color:var(--muted)}
+    .field input{width:100%;padding:.8rem 1rem;border:1.5px solid var(--line);border-radius:12px;font:500 .95rem 'DM Sans',sans-serif;color:var(--ink);background:#f9fcfb;transition:border .2s,box-shadow .2s,background .2s}
+    .field input::placeholder{color:#9db2b4;font-weight:400}
+    .field input:focus{outline:none;background:#fff;border-color:var(--teal);box-shadow:0 0 0 4px rgba(15,118,110,.14)}
+    .actions{margin-top:1.8rem;display:flex;gap:.8rem;flex-wrap:wrap}
+    .actions .btn-primary{flex:1;min-width:200px}
+    .result-box{margin-top:1.5rem;padding:1.1rem 1.25rem;border-radius:14px;background:var(--mint);border:1px solid #b7dcd5;color:var(--teal-d);font-weight:700;text-align:center}
+    @media(max-width:600px){.card{padding:2rem 1.25rem}.grid{grid-template-columns:1fr}h1{font-size:1.65rem}}
+  </style></head><body>
+<svg class="drop a" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5c-3.6 4.6-6.5 8-6.5 11.6a6.5 6.5 0 0 0 13 0C18.5 10.5 15.6 7.1 12 2.5z"/></svg>
+<svg class="drop b" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5c-3.6 4.6-6.5 8-6.5 11.6a6.5 6.5 0 0 0 13 0C18.5 10.5 15.6 7.1 12 2.5z"/></svg>
+  <main class="card">
+    <div class="brand"><span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2.5-6 4 12 2.5-6h5"/></svg></span> Diabetes Risk Check</div>
+    <h1>Enter patient measurements</h1>
+    <p class="sub">Fill in all eight values from the patient's clinical record, then run the prediction.</p>
+    <form action="{{ url_for('predict_datapoint')}}" method="post">
+      <div class="grid">
+        <div class="field"><label for="Pregnancies">Pregnancies <small>count</small></label>
+          <input type="text" inputmode="decimal" id="Pregnancies" name="Pregnancies" placeholder="e.g. 2" required="required" /></div>
+        <div class="field"><label for="Glucose">Glucose <small>mg/dL</small></label>
+          <input type="text" inputmode="decimal" id="Glucose" name="Glucose" placeholder="e.g. 120" required="required" /></div>
+        <div class="field"><label for="BloodPressure">Blood pressure <small>mm Hg</small></label>
+          <input type="text" inputmode="decimal" id="BloodPressure" name="BloodPressure" placeholder="e.g. 70" required="required" /></div>
+        <div class="field"><label for="SkinThickness">Skin thickness <small>mm</small></label>
+          <input type="text" inputmode="decimal" id="SkinThickness" name="SkinThickness" placeholder="e.g. 20" required="required" /></div>
+        <div class="field"><label for="Insulin">Insulin <small>mu U/ml</small></label>
+          <input type="text" inputmode="decimal" id="Insulin" name="Insulin" placeholder="e.g. 80" required="required" /></div>
+        <div class="field"><label for="BMI">BMI <small>kg/m²</small></label>
+          <input type="text" inputmode="decimal" id="BMI" name="BMI" placeholder="e.g. 28.5" required="required" /></div>
+        <div class="field"><label for="DiabetesPedigreeFunction">Diabetes pedigree function <small>score</small></label>
+          <input type="text" inputmode="decimal" id="DiabetesPedigreeFunction" name="DiabetesPedigreeFunction" placeholder="e.g. 0.45" required="required" /></div>
+        <div class="field"><label for="Age">Age <small>years</small></label>
+          <input type="text" inputmode="decimal" id="Age" name="Age" placeholder="e.g. 33" required="required" /></div>
+      </div>
+      <div class="actions">
+        <button type="submit" class="btn btn-primary">Predict outcome
+          <svg fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></button>
+        <a href="/" class="btn btn-ghost">Back to home</a>
+      </div>
+    </form>
+
+    {% if result %}
+    <div class="result-box">Prediction: {{result}}</div>
+    {% endif %}
+  </main>
+</body></html>
